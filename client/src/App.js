@@ -6,7 +6,6 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Detail from './pages/Detail';
@@ -14,9 +13,13 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-import { StoreProvider } from './utils/GlobalState';
+// import { StoreProvider } from './utils/GlobalState'; - not working with initial push
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+
+import store from './utils/store';
+import { Provider } from 'react-redux';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,7 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <StoreProvider>
+          <Provider store={store}>
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
@@ -53,7 +56,7 @@ function App() {
               <Route exact path="/products/:id" component={Detail} />
               <Route component={NoMatch} />
             </Switch>
-          </StoreProvider>
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>

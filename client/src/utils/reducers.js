@@ -10,7 +10,7 @@ import {
   TOGGLE_CART
 } from "./actions";
 
-//Origianl/initial state of the property
+//Original/initial state of the property
 const initialState = {
   products: [],
   cart: [],

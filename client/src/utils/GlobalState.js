@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 
-import store from './store';
-import { Provider } from 'react-redux';
+// import store from './store';
+// import { Provider } from 'react-redux';
 
-export default function StoreProvider(props);
+// export default function StoreProvider(props);
 
-return <Provider store={store} {...props} />;
+// return <Provider store={store} {...props} />;
